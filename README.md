@@ -1,9 +1,10 @@
 # FOEs-diario
 ---
 
+
 # Diario de Trabajo: Proyecto Gestión de Personal Docente
 
-**Periodo:** 02/03/2026 - 10/03/2026
+**Periodo:** 02/03/2026 - 12/03/2026
 
 **Proyecto:** Gestión de Prácticas Docentes - FP Virtual
 
@@ -37,35 +38,57 @@
 
 ### Lunes 09/03/2026
 
-* **Configuración del Entorno Docker:** * Modificación de archivos `docker-compose.yml` y `.env` para adaptar el sistema a un entorno de pruebas controlado.
-* Levantamiento del servidor web (PHP 8.4/Nginx) y de la base de datos (MySQL 8.0).
+* **Configuración del Entorno Docker:** * Ajuste de los archivos `docker-compose.yml` y `.env` para crear una base de datos llamada **instituto** con usuario y contraseña **alumno/alumno**.
+* Configuración del puerto **23306** para poder conectar mi ordenador directamente con la base de datos de Docker.
 
 
-* **Resolución de errores de acceso:** * Solución del fallo de autenticación mediante la generación de la `APP_KEY` y configuración de los *Guards* de Laravel.
-* **Desarrollo de las Tareas A, B y C:**
-* Implementación del alta de docentes con validación de DNI (estandarización a mayúsculas) y correos electrónicos.
-* Corrección de errores de integridad referencial (Error 1452) y campos obligatorios (Error 1364) en la base de datos.
+* **Solución de problemas de acceso:** * Se identificó que el problema al entrar al panel no era de programación, sino de credenciales. Se revisaron los **seeders** para usar los correos y contraseñas de prueba correctos.
+* **Desarrollo de Altas:**
+* Implementación del registro de docentes asegurando que el DNI se guarde siempre en mayúsculas.
+* Corrección de errores en la base de datos para que el sistema guarde primero al profesor y luego lo vincule a su centro.
 
 
 
-### Martes 10/03/2026 (Hoy)
+### Martes 10/03/2026
 
-* **Implementación de la Tarea D (Bajas y Reactivaciones):**
-* Creación de un sistema de "Soft Delete" para marcar docentes como inactivos mediante el campo `de_baja`.
-* Integración de botones dinámicos en la interfaz para dar de baja o reactivar docentes con un solo clic.
-
-
-* **Optimización de la Tarea G (Sanitización de Datos):**
-* Desarrollo del método `normalizarNombreYApellido` utilizando `str_replace` para eliminar símbolos (º, .) y aplicar formato `Title Case`.
+* **Gestión de Bajas y Reactivaciones:**
+* Creación de un sistema que permite dar de baja a un docente sin borrar sus datos, solo marcándolo como inactivo.
+* Se añadieron botones que cambian según el estado: si el profesor está de baja, aparece un botón verde para reactivarlo; si está activo, aparece el botón rojo para darle de baja.
 
 
-* **Mejoras de UX y Lógica de Negocio:**
-* Integración de **Alpine.js** para el filtrado de tablas en tiempo real sin recarga de página.
-* Aplicación de filtros en los selectores de docencia para excluir automáticamente a los docentes que están de baja.
+* **Limpieza de datos:**
+* Creación de un filtro automático que elimina puntos o símbolos (º, .) de los nombres y pone la primera letra en mayúscula.
 
 
-* **Documentación Técnica:**
-* Redacción del archivo `README.md` detallando la infraestructura, comandos de arranque y soluciones a retos técnicos encontrados durante la semana.
+* **Buscador en tiempo real:**
+* Integración de **Alpine.js** para que la lista de profesores se filtre al instante mientras escribimos el nombre o el DNI.
+
+
+
+### Miércoles 11/03/2026
+
+* **Organización de rutas y limpieza de código:**
+* Se reestructuró el archivo de rutas (`web.php`) para organizar mejor las funciones de los centros y las del administrador.
+* Se sacó la función de "Reactivar docente" del grupo de administración para que los usuarios de los centros puedan usarla directamente.
+
+
+* **Mejora en la gestión de acciones:**
+* Se actualizaron los formularios de la tabla de docentes para que utilicen rutas más sencillas y seguras, mejorando la respuesta del sistema al pulsar los botones de baja.
+
+
+
+### Jueves 12/03/2026 (Hoy)
+
+* **Optimización de listas de selección:**
+* Se modificó el sistema de asignación de clases para que los profesores que están de baja ya no aparezcan en los menús desplegables.
+
+
+* **Ajuste de mensajes de aviso:**
+* Se corrigió una alerta que avisaba de "módulo duplicado" por error. Ahora el sistema es capaz de ignorar a los profesores inactivos al hacer el recuento de personal.
+
+
+* **Finalización de documentación técnica:**
+* Redacción del manual **README.md** explicando de forma sencilla cómo arrancar el proyecto, la configuración del puerto 23306 y las soluciones aplicadas a los problemas de estos días.
 
 
 
