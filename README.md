@@ -90,6 +90,19 @@
 * **Finalización de documentación técnica:**
 * Redacción del manual **README.md** explicando de forma sencilla cómo arrancar el proyecto, la configuración del puerto 23306 y las soluciones aplicadas a los problemas de estos días.
 
+### Viernes 13/03/2026 
+* **Pruebas de Integración (Flujo completo):
 
+* Hice un testeo real: di de alta a un profesor, comprobé que aparecía en "Establecer Docencia", luego le di de baja y verifiqué que desaparecía del desplegable automáticamente.
+
+* Probé a reactivarlo para confirmar que el botón verde funcionaba y el mensaje de éxito era claro.
+
+* **Revisión de Mensajes de Feedback (Alertas):
+
+* Me aseguré de que cuando el sistema redirige tras una acción (como la de reactivar), el mensaje de "El docente ha sido reactivado correctamente" se viera bien en pantalla para que el usuario sepa qué ha pasado.
+
+* ** Limpieza de código muerto:
+
+* Aproveché para borrar ese trozo de código de los ciclos/módulos que no estábamos usando en la pantalla de alta, dejando el controlador mucho más limpio y fácil de explicar.
 
 ---
