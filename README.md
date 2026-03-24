@@ -106,3 +106,43 @@
 * Aproveché para borrar ese trozo de código de los ciclos/módulos que no estábamos usando en la pantalla de alta, dejando el controlador mucho más limpio y fácil de explicar.
 
 ---
+
+## Semana 3: Desarrollo y Resolución de Problemas
+
+
+---
+
+### **Miércoles, 18 de marzo**
+* **Enfoque:** Configuración del entorno y lógica inicial de Alta.
+* **Tareas realizadas:**
+    * Puesta en marcha del entorno de desarrollo con **Docker** y resolución de problemas de conexión con la base de datos MySQL (puerto 23306).
+    * Desarrollo del formulario de **Alta de Docentes**.
+    * Corrección de errores de integridad: se aseguró que el campo `id_centro` se asigne correctamente al crear el docente para evitar fallos en la base de datos.
+
+### **Jueves, 19 de marzo**
+* **Enfoque:** Normalización de datos y Testing.
+* **Tareas realizadas:**
+    * Implementación de la **limpieza automática de nombres**: creación de filtros para eliminar caracteres especiales (puntos, símbolos como º) y conversión a formato Título (Mayúsculas).
+    * Ejecución de pruebas unitarias y funcionales (`php artisan test`).
+    * Resolución de conflictos de modelos: ajuste del sistema para que los tests reconozcan el modelo personalizado `Usuario` en lugar del modelo `User` por defecto de Laravel.
+
+
+
+### **Lunes, 23 de marzo**
+* **Enfoque:** Lógica de Bajas y limpieza de repositorio.
+* **Tareas realizadas:**
+    * Desarrollo del sistema de **Bajas y Reactivaciones**: se implementó mediante un estado booleano (`de_baja`) para evitar el borrado físico de registros.
+    * Optimización de controladores: se añadieron filtros en los desplegables de docencia para que solo aparezca el personal activo.
+    * Revisión de seguridad: se identificó la necesidad de limpiar el historial de Git para eliminar archivos de configuración sensibles (`.env`) antes de la entrega final.
+
+### **Martes, 24 de marzo (Hoy)**
+* **Enfoque:** Entrega final y Pull Request.
+* **Tareas realizadas:**
+    * **Limpieza de historial de Git:** se realizó un "Squash" de los commits anteriores para unificar el trabajo en un solo mensaje profesional y limpio.
+    * **Gestión de ramas:** creación de la rama específica `pull-request-docente` y subida a un Fork remoto.
+    * **Resolución de conflictos:** se solucionó manualmente un conflicto de fusión en el archivo `baja_docente.blade.php` directamente en GitHub.
+    * **Envío de Pull Request:** entrega formal de 6 archivos (controladores, vistas y rutas) al repositorio principal del proyecto.
+
+
+
+---
