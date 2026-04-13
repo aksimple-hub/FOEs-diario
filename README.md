@@ -4,7 +4,7 @@
 
 # Diario de Trabajo: Proyecto Gestión de Personal Docente
 
-**Periodo:** 02/03/2026 - 12/03/2026
+**Periodo:** 02/03/2026 - 05/06/2026
 
 **Proyecto:** Gestión de Prácticas Docentes - FP Virtual
 
